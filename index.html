@@ -1,0 +1,1093 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Panitia SPMB 2026 - SMKN 4 Kupang</title>
+    <!-- Google Fonts & FontAwesome Icons -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <style>
+      /* --- ROOT VARIABLES & RESET --- */
+      :root {
+        --primary: #1e3a8a;
+        --secondary: #f59e0b;
+        --dark: #0f172a;
+        --light: #f8fafc;
+        --accent: #10b981;
+        --text-muted: #64748b;
+        --footerA: #f8fafc;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background-color: var(--light);
+        color: var(--dark);
+        line-height: 1.6;
+      }
+
+      /* --- REUSABLE COMPONENTS --- */
+      .container {
+        width: 85%;
+        max-width: 1200px;
+        margin: auto;
+        padding: 60px 0;
+      }
+
+      .section-title {
+        text-align: center;
+        margin-bottom: 40px;
+        position: relative;
+      }
+
+      .section-title h2 {
+        font-size: 2.5rem;
+        color: var(--primary);
+        font-weight: 700;
+      }
+
+      .section-title p {
+        color: var(--text-muted);
+        font-size: 1.1rem;
+        margin-top: 10px;
+      }
+
+      .section-title::after {
+        content: "";
+        display: block;
+        width: 80px;
+        height: 4px;
+        background: var(--secondary);
+        margin: 15px auto 0;
+        border-radius: 2px;
+      }
+
+      .grid-gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+        margin-top: 30px;
+      }
+
+      .card-img {
+        overflow: hidden;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        position: relative;
+        height: 220px;
+        transition: transform 0.3s ease;
+      }
+
+      .card-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+
+      .card-img:hover img {
+        transform: scale(1.1);
+      }
+
+      .img-caption {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+        color: white;
+        padding: 15px;
+        font-size: 0.9rem;
+        font-weight: 600;
+      }
+
+      /* --- NAVBAR --- */
+      header {
+        background: white;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+      }
+
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 5%;
+      }
+
+      .logo h1 {
+        font-size: 1.5rem;
+        color: var(--primary);
+        font-weight: 700;
+      }
+
+      .nav-links {
+        display: flex;
+        list-style: none;
+      }
+
+      .nav-links a {
+        color: var(--dark);
+        text-decoration: none;
+        padding: 10px 15px;
+        font-weight: 600;
+        transition: color 0.3s;
+        font-size: 0.95rem;
+      }
+
+      .nav-links a:hover,
+      .nav-links a.active {
+        color: var(--primary);
+      }
+
+      .btn-spmb-nav {
+        background: var(--secondary);
+        color: white !important;
+        border-radius: 20px;
+        padding: 8px 20px !important;
+      }
+
+      .btn-spmb-nav:hover {
+        background: #d97706;
+      }
+
+      .menu-toggle {
+        display: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+      }
+
+      /* --- HERO SECTION --- */
+      #home {
+        height: 100vh;
+        background:
+          linear-gradient(rgba(30, 58, 138, 0.7), rgba(15, 23, 42, 0.85)),
+          url("https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1200&q=80")
+            no-repeat center center/cover;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: white;
+        padding-top: 80px;
+      }
+
+      .hero-content h2 {
+        font-size: 3.5rem;
+        font-weight: 700;
+        margin-bottom: 10px;
+        letter-spacing: 1px;
+      }
+
+      .hero-content p {
+        font-size: 1.3rem;
+        margin-bottom: 30px;
+        color: #cbd5e1;
+      }
+
+      .btn-main {
+        background: var(--secondary);
+        color: white;
+        padding: 12px 35px;
+        text-decoration: none;
+        border-radius: 30px;
+        font-weight: 600;
+        font-size: 1.1rem;
+        box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
+        transition: 0.3s ease;
+      }
+
+      .btn-main:hover {
+        background: #d97706;
+        transform: translateY(-3px);
+      }
+
+      /* --- PROFIL & VISI MISI --- */
+      .intro-text {
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto 30px;
+        font-size: 1.1rem;
+        color: #475569;
+      }
+
+      .visimisi-box {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+        margin-bottom: 40px;
+      }
+
+      .vm-card {
+        background: white;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        border-left: 5px solid var(--primary);
+      }
+
+      .vm-card h3 {
+        color: var(--primary);
+        margin-bottom: 15px;
+      }
+
+      /* --- SPMB SECTION --- */
+      #spmb {
+        background: #f1f5f9;
+      }
+
+      .spmb-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 40px;
+      }
+
+      .spmb-card {
+        background: white;
+        padding: 35px;
+        border-radius: 16px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        margin-bottom: 30px;
+      }
+
+      .spmb-card h3 {
+        color: var(--primary);
+        border-bottom: 2px solid #e2e8f0;
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .list-unstyled {
+        list-style: none;
+      }
+
+      .list-unstyled li {
+        position: relative;
+        padding-left: 30px;
+        margin-bottom: 12px;
+      }
+
+      .list-unstyled li i {
+        position: absolute;
+        left: 0;
+        top: 4px;
+        color: var(--accent);
+      }
+
+      .jalur-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 15px;
+      }
+
+      .jalur-box {
+        background: #e0f2fe;
+        color: #0369a1;
+        padding: 15px;
+        border-radius: 10px;
+        text-align: center;
+        font-weight: 600;
+        border: 1px solid #bae6fd;
+      }
+
+      .keunggulan-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+      }
+
+      .keunggulan-item {
+        background: #f8fafc;
+        padding: 15px;
+        border-radius: 8px;
+        border-left: 4px solid var(--secondary);
+        font-weight: 500;
+      }
+
+      /* Timeline Jadwal */
+      .timeline {
+        position: relative;
+        border-left: 3px solid var(--primary);
+        padding-left: 20px;
+        margin-left: 10px;
+      }
+
+      .timeline-item {
+        position: relative;
+        margin-bottom: 25px;
+      }
+
+      .timeline-item::after {
+        content: "";
+        position: absolute;
+        left: -27px;
+        top: 5px;
+        width: 12px;
+        height: 12px;
+        background: var(--secondary);
+        border-radius: 50%;
+        border: 3px solid white;
+      }
+
+      .timeline-item h4 {
+        color: var(--dark);
+        font-size: 1rem;
+      }
+
+      .timeline-item p {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+      }
+
+      .badge-tahap {
+        background: var(--primary);
+        color: white;
+        padding: 3px 10px;
+        border-radius: 12px;
+        font-size: 0.8rem;
+        display: inline-block;
+        margin-bottom: 10px;
+      }
+
+      .btn-register {
+        display: block;
+        background: var(--accent);
+        color: white;
+        text-align: center;
+        padding: 15px;
+        border-radius: 10px;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 1.2rem;
+        box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+        transition: 0.3s;
+      }
+
+      .btn-register:hover {
+        background: #059669;
+        transform: translateY(-2px);
+      }
+
+      .alert-box {
+        background: #fffeb3;
+        border-left: 5px solid #eab308;
+        padding: 15px;
+        border-radius: 8px;
+        margin-top: 20px;
+        font-size: 0.9rem;
+      }
+
+      /* --- FOOTER & CONTACT --- */
+      footer {
+        background: var(--dark);
+        color: white;
+        padding: 60px 0 20px;
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 40px;
+        margin-bottom: 40px;
+      }
+
+      .footer-info h3,
+      .footer-links a,
+      .footer-links h3 {
+        font-size: 0.9rem;
+        margin-bottom: 20px;
+        color: var(--footerA);
+        text-decoration: none;
+      }
+
+      .footer-info p {
+        color: #94a3b8;
+        margin-bottom: 10px;
+      }
+
+      .footer-info i {
+        margin-right: 10px;
+        color: var(--secondary);
+      }
+
+      .social-icons a {
+        color: white;
+        font-size: 1.5rem;
+        margin-right: 15px;
+        transition: 0.3s;
+      }
+
+      .social-icons a:hover {
+        color: var(--secondary);
+      }
+
+      .footer-bottom {
+        text-align: center;
+        border-top: 1px solid #334155;
+        padding-top: 20px;
+        font-size: 0.9rem;
+        color: #64748b;
+      }
+
+      /* --- RESPONSIVE DESIGN --- */
+      @media (max-width: 992px) {
+        .spmb-grid {
+          grid-template-columns: 1fr;
+        }
+        .visimisi-box {
+          grid-template-columns: 1fr;
+        }
+        .hero-content h2 {
+          font-size: 2.5rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .nav-links {
+          position: fixed;
+          top: 70px;
+          left: -100%;
+          width: 100%;
+          height: calc(100vh - 70px);
+          background: white;
+          flex-direction: column;
+          align-items: center;
+          padding-top: 30px;
+          transition: 0.4s ease;
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-links.active {
+          left: 0;
+        }
+
+        .nav-links li {
+          margin: 15px 0;
+        }
+
+        .menu-toggle {
+          display: block;
+          color: var(--primary);
+        }
+
+        .container {
+          width: 90%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <header>
+      <nav class="navbar">
+        <div class="logo">
+          <h1>Panitia SPMB 2026</h1>
+        </div>
+        <div class="menu-toggle" id="mobile-menu">
+          <i class="fas fa-bars"></i>
+        </div>
+        <ul class="nav-links">
+          <li><a href="#home" class="active">Home</a></li>
+          <li><a href="#profil">Profil</a></li>
+          <li><a href="#visimisi">Visi Misi</a></li>
+          <li><a href="#keahlian">Prodi</a></li>
+          <li><a href="#fasilitas">Fasilitas</a></li>
+          <li><a href="#ekskul">Ekstrakurikuler</a></li>
+          <li><a href="#spmb" class="btn-spmb-nav">SPMB 2026</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="home">
+      <div class="hero-content">
+        <h2>Info SPMB 2026<br />SMKN 4 Kupang</h2>
+        <p>Membentuk Generasi Unggul, Berkeahlian Modern, dan Berkarakter</p>
+        <a href="https://ntt.spmb.id" target="_blank" class="btn-main"
+          ><i class="fas fa-user-plus"></i> Daftar SPMB 2026 Now</a
+        >
+      </div>
+    </section>
+
+    <!-- PROFIL SEKOLAH -->
+    <section id="profil" class="container">
+      <div class="section-title">
+        <h2>Profil Sekolah</h2>
+        <p>
+          Di tengah semangat pembangunan dan kreativitas generasi muda Nusa
+          Tenggara Timur, SMKN 4 Kupang, sekolah dengan segudang prestasi, hadir
+          menjadi tempat tumbuhnya talenta, inovasi, dan masa depan. Di sini,
+          belajar bukan hanya tentang teori tetapi tentang berkarya, berinovasi,
+          berbudaya, berkarakter dan siap menghadapi dunia nyata. Melalui
+          program pembelajaran berbasis praktik, siswa tidak hanya belajar di
+          kelas, tetapi siswa juga secara tidak langsung berdampak kepada
+          masyarakat melalui inovasi produk yang dihasilkan serta kompetitif
+          dalam berbagai bidang atau lomba dengan sekolah lain dan sikap
+          menghadapi dunia kerja
+        </p>
+      </div>
+      <p class="intro-text">
+        SMKN 4 Kupang merupakan sekolah pusat keunggulan dengan segudang
+        prestasi yang berakreditasi A unggul, berkomitmen mencetak tenaga kerja
+        profesional yang siap bersaing di dunia industri global. Mengombinasikan
+        kurikulum berbasis industri dengan pembentukan karakter yang berakar
+        pada kearifan lokal.
+      </p>
+      <div class="grid-gallery">
+        <div class="card-img">
+          <img src="gambar/praktik_IoT.jpg" alt="Praktik IoT" />
+          <div class="img-caption">Praktik IoT</div>
+        </div>
+        <div class="card-img">
+          <img
+            src="gambar/podcast.jpg"
+            alt="Aktivitas Belajar di ruang Podcast"
+          />
+          <div class="img-caption">Studio Podcast</div>
+        </div>
+        <div class="card-img">
+          <img src="gambar/lingkungan.jpg" alt="Lingkungan Asri" />
+          <div class="img-caption">Lingkungan Asri</div>
+        </div>
+        <div class="card-img">
+          <img src="gambar/cetak.jpg" alt="Lab & Printing" />
+          <div class="img-caption">Lab & Printing</div>
+        </div>
+        <div class="card-img">
+          <img src="gambar/greenscreen.jpg" alt="Green Screen" />
+          <div class="img-caption">Pembelajaran Daring</div>
+        </div>
+        <div class="card-img">
+          <img src="gambar/cbt.jpg" alt="Ujian berbasis CBT" />
+          <div class="img-caption">Ujian berbasis CBT</div>
+        </div>
+      </div>
+    </section>
+
+    <hr style="border: 0; border-top: 1px solid #e2e8f0" />
+
+    <!-- VISI MISI -->
+    <section id="visimisi" class="container">
+      <div class="section-title">
+        <h2>Visi & Misi</h2>
+        <p>
+          Arah dan panduan langkah kami dalam meraih masa depan pendidikan yang
+          berkualitas.
+        </p>
+      </div>
+      <div class="visimisi-box">
+        <div class="vm-card">
+          <h3><i class="fas fa-eye"></i> Visi</h3>
+          <p>
+            Menjadi lembaga pendidikan kejuruan yang memiliki sumber daya
+            manusia profesional, kompeten dalam menghasilkan kebekerjaan lulusan
+            yang tinggi, kompetetif, berkarakter dan berwawasan lingkungan
+          </p>
+        </div>
+        <div class="vm-card">
+          <h3><i class="fas fa-bullseye"></i> Misi</h3>
+          <p>
+            Mengefektifkan penguatan pendidikan karakter peserta didik yang
+            mencirikan profil pelajar pancasila serta penguatan budaya literasi
+            bagi seluruh warga sekolah. <br /><br />Meningkatkan kualitas
+            pendidik dan tenaga kependidikan yang disiplin, adaptif, dan mampu
+            berbahasa inggris. Mewujudkan pemenuhan sarana / prasarana
+            pendidikan yang layak dan memadai, pengembangan manajemen sekolah,
+            pengembangan kurikulum dan pembelajaran industri berbasis digital.
+            <br /><br />Meningkatkan kebekerjaan lulusan minimal 30% setiap
+            tahun dan mutu lulusan melalui kerjasama / kemitraan lokal, nasional
+            maupun tingkat regional (asean) setiap tahun. Menciptakan lingkungan
+            sekolah yang bersih, indah dan nyaman.
+          </p>
+        </div>
+      </div>
+      <div class="grid-gallery">
+        <div class="card-img">
+          <img src="gambar/pameran.jpg" />
+          <div class="img-caption">Pameran Karya Siswa</div>
+        </div>
+        <div class="card-img">
+          <img src="gambar/kelas.jpg" />
+          <div class="img-caption">Pembelajaran dalam kelas</div>
+        </div>
+        <div class="card-img">
+          <img src="gambar/sbd.jpeg" />
+          <div class="img-caption">SMK Bangun desa</div>
+        </div>
+        <div class="card-img">
+          <img src="gambar/nas.jpg" />
+          <div class="img-caption">Mengikuti Event Nasional</div>
+        </div>
+        <div class="card-img">
+          <img src="gambar/foto.jpg" />
+          <div class="img-caption">Pemrotretan Produk Lokal</div>
+        </div>
+        <div class="card-img">
+          <img src="gambar/print.jpg" />
+          <div class="img-caption">Digital Printing</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- KONSENTRASI KEAHLIAN -->
+    <section id="keahlian" style="background-color: #f8fafc">
+      <div class="container">
+        <div class="section-title">
+          <h2>Konsentrasi Keahlian</h2>
+          <p>
+            Program keahlian relevan demi menjamin masa depan karier cemerlang.
+          </p>
+        </div>
+        <p class="intro-text">
+          Kami menyediakan 5 program Konsentrasi Keahlian spesifik yang
+          memadukan keahlian teknologi digital masa kini dengan pelestarian
+          mahakarya kriya kreatif tradisional.
+          <br /><br />
+          <strong><b>Komunikasi Visual (DKV) - 3 Thn</b></strong>
+          DKV tidak hanya berfokus pada keindahan visual, tetapi juga pada
+          strategi komunikasi agar pesan dapat dipahami, diingat, dan mampu
+          memengaruhi perilaku audiens. Penerapannya mencakup media cetak
+          (poster, brosur, kemasan, dll) maupun media digital (media sosial,
+          website, video, dan animasi).
+          <br /><br />
+          <strong><b>Teknik Komputer dan Jaringan (TKJ) - 3 Thn</b></strong>
+          Pembelajaran dirancang kontekstual melalui praktik langsung seperti
+          instalasi dan konfigurasi jaringan, administrasi server, keamanan
+          sistem, hingga pengenalan teknologi terkini. Pendekatan deep learning
+          mendorong siswa berpikir kritis, kreatif, dan reflektif, sehingga
+          mampu memahami materi secara menyeluruh, bukan sekadar hafalan.
+          <br /><br />
+          <strong
+            ><b>Desain Interior & Teknik Furnitur (DITF) - 4 Thn</b></strong
+          >
+          Pembelajaran berfokus pada penerapan Kurikulum Merdeka berbasis deep
+          learning berfokus pada pengembangan kemampuan merancang ruang dan
+          produk furnitur yang fungsional, estetis, serta sesuai kebutuhan
+          pengguna. Siswa memahami konsep desain, ergonomi, material, hingga
+          teknik produksi furnitur secara menyeluruh. Pembelajaran dilakukan
+          secara kontekstual dan berbasis proyek, terlibat langsung dalam proses
+          riset kebutuhan pengguna, pembuatan konsep desain, visualisasi (sketsa
+          dan digital), hingga pembuatan produk nyata.
+
+          <br /><br />
+          <strong><b>Kriya Kreatif Batik dan Tekstil (KKBT) - 3 Thn</b></strong>
+          Studi Kriya Kreatif Batik dan Tekstil di Sekolah Menengah Kejuruan
+          dengan penerapan Kurikulum Merdeka berbasis *deep learning* berfokus
+          pada pengembangan keterampilan mencipta karya tekstil yang kreatif,
+          inovatif, dan bernilai budaya. Siswa dibekali kompetensi mulai dari
+          pengenalan bahan dan alat, teknik batik (tulis, cap, dan kombinasi),
+          pewarnaan, hingga pengolahan berbagai produk tekstil.
+
+          <br /><br />
+          <strong><b>Kriya Kreatif Kayu dan Rotan (KKKR) - 3 Thn</b></strong>
+          Menerapan Kurikulum Merdeka berbasis *deep learning* berfokus pada
+          pengembangan keterampilan mengolah bahan kayu dan rotan menjadi produk
+          kriya yang fungsional, estetis, dan bernilai ekonomi. Siswa dibekali
+          kompetensi mulai dari pemahaman material, teknik kerja bangku dan
+          mesin, teknik ukir, hingga proses finishing produk. Pembelajaran
+          dilakukan secara kontekstual dan berbasis proyek, di mana siswa
+          terlibat langsung dalam proses perancangan, pembuatan, hingga
+          penyempurnaan produk kriya sesuai kebutuhan pasar dan potensi lokal.
+          Pendekatan *deep learning* mendorong siswa berpikir kritis, kreatif,
+          dan reflektif, sehingga mampu menghasilkan karya yang tidak hanya
+          berkualitas, tetapi juga memiliki identitas dan nilai budaya.
+        </p>
+        <div class="grid-gallery">
+          <div class="card-img">
+            <img src="gambar/dkv.jpg" />
+            <div class="img-caption">Desain Komunikasi Visual (3 Thn)</div>
+          </div>
+          <div class="card-img">
+            <img src="gambar/tkj.jpg" />
+            <div class="img-caption">Teknik Komputer Jaringan (3 Thn)</div>
+          </div>
+          <div class="card-img">
+            <img src="gambar/interior.jpg" />
+            <div class="img-caption">Teknik Furnitur (4 Thn)</div>
+          </div>
+          <div class="card-img">
+            <img src="gambar/tekstil.jpg" />
+            <div class="img-caption">Kriya Kreatif Batik & Tekstil (3 Thn)</div>
+          </div>
+          <div class="card-img">
+            <img src="gambar/kayu.jpg" />
+            <div class="img-caption">Kriya Kreatif Kayu & Rotan (3 Thn)</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FASILITAS -->
+    <section id="fasilitas" class="container">
+      <div class="section-title">
+        <h2>Fasilitas Sekolah</h2>
+        <p>
+          Laboratorium Komputer, Laboratorium bahasa dengan Integrated Flat
+          Pannel (IFP), Mesin CNC Router dan CNC Laser Cutting, Bengkel Praktek
+          per Jurusan, Studio PodCast, Drum Band, Band Musik, Olah raga, dan
+          lainnya
+        </p>
+      </div>
+      <div class="grid-gallery">
+        <div class="card-img">
+          <img src="gambar/labjaringan.jpg" />
+          <div class="img-caption">Lab. Jaringan</div>
+        </div>
+        <div class="card-img">
+          <img src="gambar/labkomputer.jpg" />
+          <div class="img-caption">Lab. Komputer</div>
+        </div>
+        <div class="card-img">
+          <img src="gambar/digPrintingPeliputan.jpg" />
+          <div class="img-caption">Fasilitas Peliputan</div>
+        </div>
+        <div class="card-img">
+          <img src="gambar/jahit.jpg" />
+          <div class="img-caption">Ruang Tata Busana/Jahit</div>
+        </div>
+        <div class="card-img">
+          <img src="gambar/bengkelkayu.jpg" />
+          <div class="img-caption">Bengkel Kayu</div>
+        </div>
+        <div class="card-img">
+          <img src="gambar/desain.jpg" />
+          <div class="img-caption">Lab. Desain</div>
+        </div>
+        <div class="card-img">
+          <img src="gambar/bengkeltekstil.jpg" />
+          <div class="img-caption">Bengkel Tekstil</div>
+        </div>
+        <div class="card-img">
+          <img src="gambar/studiofoto.JPG" />
+          <div class="img-caption">Studio Foto</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EKSTRAKURIKULER -->
+    <section id="ekskul" style="background-color: #f8fafc">
+      <div class="container">
+        <div class="section-title">
+          <h2>Ekstrakurikuler</h2>
+          <p>
+            Wadah pengembangan minat, bakat, kepemimpinan, dan kreativitas
+            non-akademik. Ekstrakurikulerberupa: Drum band, Modern dance, Tarian
+            tradisional, Seni vokal, Pramuka, English club, Futsal, Atletik
+          </p>
+        </div>
+        <div class="grid-gallery">
+          <div class="card-img">
+            <img src="gambar/drum.jpg" />
+            <div class="img-caption">Drumband</div>
+          </div>
+          <div class="card-img">
+            <img src="gambar/fashion.jpg" />
+            <div class="img-caption">Fashion Show</div>
+          </div>
+          <div class="card-img">
+            <img src="gambar/vokal.jpg" />
+            <div class="img-caption">Seni Vokal</div>
+          </div>
+          <div class="card-img">
+            <img src="gambar/english.jpg" />
+            <div class="img-caption">English Club</div>
+          </div>
+          <div class="card-img">
+            <img src="gambar/tari.jpg" />
+            <div class="img-caption">Tarian Tradisional</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SPMB SECTION -->
+    <section id="spmb">
+      <div class="container">
+        <div class="section-title">
+          <h2>SPMB 2026</h2>
+          <p>
+            Sistem Penerimaan Murid Baru SMKN 4 Kupang Tahun Pelajaran 2026/2027
+          </p>
+        </div>
+
+        <div class="spmb-grid">
+          <!-- Sisi Kiri: Informasi Syarat & Jalur -->
+          <div>
+            <div class="spmb-card">
+              <h3><i class="fas fa-road"></i> Jalur Pendaftaran</h3>
+              <div class="jalur-container">
+                <div class="jalur-box">01. Domisili</div>
+                <div class="jalur-box">02. Prestasi</div>
+                <div class="jalur-box">03. Afirmasi</div>
+                <div class="jalur-box">04. Mutasi</div>
+              </div>
+            </div>
+
+            <div class="spmb-card">
+              <h3><i class="fas fa-file-alt"></i> Syarat Umum</h3>
+              <ul class="list-unstyled">
+                <li><i class="fas fa-check-circle"></i> 01. Akta Kelahiran</li>
+                <li><i class="fas fa-check-circle"></i> 02. Kartu Keluarga</li>
+                <li><i class="fas fa-check-circle"></i> 03. Buku Raport SMP</li>
+                <li>
+                  <i class="fas fa-check-circle"></i> 04. Ijazah/SKL (Opsional)
+                </li>
+                <li>
+                  <i class="fas fa-check-circle"></i> 05. Usia maksimal 21 tahun
+                  pada tanggal 01 Juli 2026
+                </li>
+              </ul>
+            </div>
+
+            <div class="spmb-card">
+              <h3><i class="fas fa-file-medical"></i> Syarat Khusus</h3>
+              <ul class="list-unstyled">
+                <li>
+                  <i class="fas fa-star"></i>
+                  <strong>Jalur Prestasi:</strong> Wajib melampirkan
+                  piagam/sertifikat resmi.
+                </li>
+                <li>
+                  <i class="fas fa-exchange-alt"></i>
+                  <strong>Jalur Mutasi:</strong> Wajib mencantumkan Surat Pindah
+                  Tugas orang tua.
+                </li>
+                <li>
+                  <i class="fas fa-hand-holding-heart"></i>
+                  <strong>Jalur Afirmasi:</strong> Wajib memiliki bukti Program
+                  Bantuan Sosial (PKH/KIP/KKKS/KPS) atau masuk kategori
+                  ABK/ADEM.
+                </li>
+                <li>
+                  <i class="fas fa-user-circle"></i> Menyertakan pasfoto
+                  terbaru.
+                </li>
+              </ul>
+            </div>
+
+            <div class="spmb-card">
+              <h3>
+                <i class="fas fa-question-circle"></i> Mengapa Memilih SMKN 4
+                Kupang?
+              </h3>
+              <div class="keunggulan-grid">
+                <div class="keunggulan-item">
+                  <i class="fas fa-award text-amber-500"></i> Akreditasi A
+                  Unggul
+                </div>
+                <div class="keunggulan-item">
+                  <i class="fas fa-user-tie"></i> Guru Kompeten
+                </div>
+                <div class="keunggulan-item">
+                  <i class="fas fa-tools"></i> Fasilitas Lengkap
+                </div>
+                <div class="keunggulan-item">
+                  <i class="fas fa-industry"></i> Berbasis Industri
+                </div>
+                <div class="keunggulan-item">
+                  <i class="fas fa-star"></i> Banyak Prestasi
+                </div>
+                <div class="keunggulan-item">
+                  <i class="fas fa-leaf"></i> Lingkungan Asri
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sisi Kanan: Jadwal & Link Pendaftaran -->
+          <div>
+            <div class="spmb-card" style="position: sticky; top: 100px">
+              <h3><i class="fas fa-calendar-alt"></i> Jadwal Pendaftaran</h3>
+
+              <div class="badge-tahap">PENDAFTARAN ONLINE TAHAP I</div>
+              <div class="timeline">
+                <div class="timeline-item">
+                  <h4>Pendaftaran & Verifikasi</h4>
+                  <p><i class="far fa-calendar"></i> 24 - 26 Juni 2026</p>
+                </div>
+                <div class="timeline-item">
+                  <h4>Pengumuman Kelulusan</h4>
+                  <p><i class="far fa-clock"></i> 27 Juni 2026 - 08:00 WITA</p>
+                </div>
+                <div class="timeline-item">
+                  <h4>Pendaftaran Ulang</h4>
+                  <p><i class="far fa-calendar-alt"></i> 29 - 30 Juni 2026</p>
+                </div>
+              </div>
+
+              <div class="badge-tahap" style="background: var(--secondary)">
+                PENDAFTARAN ONLINE TAHAP II
+              </div>
+              <div class="timeline">
+                <div class="timeline-item">
+                  <h4>Pendaftaran & Verifikasi</h4>
+                  <p><i class="far fa-calendar"></i> 01 - 02 Juli 2026</p>
+                </div>
+                <div class="timeline-item">
+                  <h4>Pengumuman Kelulusan</h4>
+                  <p><i class="far fa-clock"></i> 03 Juli 2026 - 08:00 WITA</p>
+                </div>
+                <div class="timeline-item">
+                  <h4>Pendaftaran Ulang</h4>
+                  <p><i class="far fa-calendar-alt"></i> 04 & 06 Juli 2026</p>
+                </div>
+              </div>
+
+              <a href="https://ntt.spmb.id" target="_blank" class="btn-register"
+                ><i class="fas fa-external-link-alt"></i> LINK PENDAFTARAN</a
+              >
+
+              <div
+                style="
+                  text-align: center;
+                  margin-top: 15px;
+                  font-weight: bold;
+                  color: var(--accent);
+                "
+              >
+                <i class="fas fa-wallet"></i> GRATIS / TIDAK DIPUNGUT BIAYA
+              </div>
+
+              <div class="alert-box">
+                <strong
+                  ><i class="fas fa-exclamation-triangle"></i> Untuk
+                  Diperhatikan:</strong
+                >
+                <ol style="margin-left: 15px; margin-top: 5px">
+                  <li>
+                    Murid baru diterima yang tidak daftar ulang dianggap
+                    mengundurkan diri.
+                  </li>
+                  <li>
+                    Hari pertama KBM TA 2026/2027 dimulai
+                    <strong>13 Juli 2026</strong>.
+                  </li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER / CONTACT -->
+    <footer>
+      <div class="container footer-grid">
+        <div class="footer-info">
+          <h3>SMKN 4 KUPANG</h3>
+          <p>
+            <i class="fas fa-map-marker-alt"></i> Jl. Bajawa Oepoi Kota Kupang -
+            NTT
+          </p>
+          <p>
+            <i class="fas fa-globe"></i>
+            <a
+              href="http://www.smkn4kupang.sch.id"
+              style="color: #94a3b8; text-decoration: none"
+              >www.smkn4kupang.sch.id</a
+            >
+          </p>
+          <div class="social-icons" style="margin-top: 20px">
+            <a href="https://www.instagram.com/smkn4kupang/" target="_blank"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a href="https://www.tiktok.com/@smkn4kupang" target="_blank"
+              ><i class="fab fa-tiktok"></i
+            ></a>
+            <a href="https://www.youtube.com/@SMKNEGERI4KUPANG" target="_blank"
+              ><i class="fab fa-youtube"></i
+            ></a>
+          </div>
+        </div>
+        <div class="footer-links">
+          <h3>Hubungi Kami (CP)</h3>
+          <p>
+            <i class="fas fa-phone-alt"></i
+            ><a href="https://wa.me/+6282144660020" target="_blank">
+              0821-4466-0020 (Ibu Reta)</a
+            >
+          </p>
+          <p>
+            <i class="fas fa-phone-alt"></i
+            ><a href="https://wa.me/+6285228634153" target="_blank">
+              0852-2863-4153 (Pak Herman)
+            </a>
+          </p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Panitia SPMB 2026 SMKN 4 Kupang. All Rights Reserved.</p>
+      </div>
+    </footer>
+
+    <!-- INTERACTIVE JAVASCRIPT -->
+    <script>
+      // --- Mobile Menu Toggle ---
+      const mobileMenu = document.getElementById("mobile-menu");
+      const navLinks = document.querySelector(".nav-links");
+
+      mobileMenu.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+        mobileMenu.querySelector("i").classList.toggle("fa-bars");
+        mobileMenu.querySelector("i").classList.toggle("fa-times");
+      });
+
+      // --- Smooth Scroll & Active Menu Highlighting ---
+      const sections = document.querySelectorAll("section");
+      const navItems = document.querySelectorAll(".nav-links a");
+
+      window.addEventListener("scroll", () => {
+        let current = "";
+
+        sections.forEach((section) => {
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.clientHeight;
+          if (pageYOffset >= sectionTop - 150) {
+            current = section.getAttribute("id");
+          }
+        });
+
+        navItems.forEach((item) => {
+          item.classList.remove("active");
+          if (item.getAttribute("href").includes(current) && current !== "") {
+            item.classList.add("active");
+          }
+        });
+      });
+
+      // Menutup menu mobile otomatis saat link diklik
+      navItems.forEach((item) => {
+        item.addEventListener("click", () => {
+          if (navLinks.classList.contains("active")) {
+            navLinks.classList.remove("active");
+            mobileMenu.querySelector("i").classList.add("fa-bars");
+            mobileMenu.querySelector("i").classList.remove("fa-times");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
