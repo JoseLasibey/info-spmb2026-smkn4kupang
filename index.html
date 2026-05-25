@@ -1127,6 +1127,8 @@
         <h3>
           ATAU PANTAU SAJA DI LINK:
           <a href="https://ntt.spmb.id" target="_blank">https://ntt.spmb.id</a>
+          <br />
+          <a href="#spmb" class="btn-spmb-nav">SYARAT SPMB 2026</a>
         </h3>
       </div>
     </div>
@@ -1179,7 +1181,9 @@
       // --- Validasi Link Pendaftaran SPMB ---
       const spmbLinks = document.querySelectorAll(".spmb-link");
       const modal = document.getElementById("spmbModal");
+
       const closeModal = document.querySelector(".close-modal");
+      const btnSpmbNav = document.querySelector(".btn-spmb-nav");
 
       function isRegistrationOpen() {
         const now = new Date();
@@ -1223,6 +1227,37 @@
       window.addEventListener("click", (e) => {
         if (e.target === modal) {
           modal.style.display = "none";
+        }
+      });
+
+      // Tutup modal
+      closeModal.addEventListener("click", () => {
+        modal.style.display = "none";
+      });
+
+      window.addEventListener("click", (e) => {
+        if (e.target === modal) {
+          modal.style.display = "none";
+        }
+      });
+
+      // Tutup modal + scroll ke #spmb saat SYARAT SPMB 2026 diklik
+      document.addEventListener("click", function (e) {
+        if (e.target.closest(".btn-spmb-nav")) {
+          e.preventDefault();
+
+          // tutup modal
+          modal.style.display = "none";
+
+          // hapus class/show jika modal memakai class aktif
+          modal.classList.remove("show", "active");
+
+          // scroll ke section SPMB
+          setTimeout(() => {
+            document.querySelector("#spmb").scrollIntoView({
+              behavior: "smooth",
+            });
+          }, 100);
         }
       });
     </script>
