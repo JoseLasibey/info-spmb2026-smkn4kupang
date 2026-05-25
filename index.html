@@ -452,6 +452,72 @@
         color: #64748b;
       }
 
+      /* MODAL SPMB */
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 9999;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.65);
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+      }
+
+      .modal-content {
+        background: white;
+        max-width: 650px;
+        width: 100%;
+        border-radius: 15px;
+        padding: 30px;
+        animation: fadeIn 0.3s ease;
+        position: relative;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+      }
+
+      .modal-content h2 {
+        color: var(--primary);
+        margin-bottom: 15px;
+        text-align: center;
+      }
+
+      .modal-content h3 {
+        color: var(--secondary);
+        margin-top: 15px;
+      }
+
+      .modal-content p {
+        margin: 8px 0;
+        color: #475569;
+      }
+
+      .close-modal {
+        position: absolute;
+        top: 12px;
+        right: 18px;
+        font-size: 1.7rem;
+        cursor: pointer;
+        color: #64748b;
+      }
+
+      .close-modal:hover {
+        color: #ef4444;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(-15px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
       /* --- RESPONSIVE DESIGN --- */
       @media (max-width: 992px) {
         .spmb-grid {
@@ -524,11 +590,11 @@
     <!-- HERO SECTION -->
     <section id="home">
       <div class="hero-content">
-        <h2>Info SPMB 2026<br />SMKN 4 Kupang</h2>
+        <h2>INFO SPMB 2026<br />SMKN 4 KUPANG</h2>
         <p>Membentuk Generasi Unggul, Berkeahlian Modern, dan Berkarakter</p>
-        <a href="https://ntt.spmb.id" target="_blank" class="btn-main"
-          ><i class="fas fa-user-plus"></i> Daftar SPMB 2026 Now</a
-        >
+        <a href="#" class="btn-main spmb-link">
+          <i class="fas fa-user-plus"></i> Daftar SPMB 2026 Now
+        </a>
       </div>
     </section>
 
@@ -887,7 +953,7 @@
                 </li>
               </ul>
             </div>
-
+            <!-- 
             <div class="spmb-card">
               <h3>
                 <i class="fas fa-question-circle"></i> Mengapa Memilih SMKN 4
@@ -914,7 +980,7 @@
                   <i class="fas fa-leaf"></i> Lingkungan Asri
                 </div>
               </div>
-            </div>
+            </div> -->
           </div>
 
           <!-- Sisi Kanan: Jadwal & Link Pendaftaran -->
@@ -956,9 +1022,9 @@
                 </div>
               </div>
 
-              <a href="https://ntt.spmb.id" target="_blank" class="btn-register"
-                ><i class="fas fa-external-link-alt"></i> LINK PENDAFTARAN</a
-              >
+              <a href="#" class="btn-register spmb-link">
+                <i class="fas fa-external-link-alt"></i> LINK PENDAFTARAN
+              </a>
 
               <div
                 style="
@@ -1042,7 +1108,28 @@
         <p>&copy; 2026 Panitia SPMB 2026 SMKN 4 Kupang. All Rights Reserved.</p>
       </div>
     </footer>
+    <!-- MODAL INFO PENDAFTARAN -->
+    <div id="spmbModal" class="modal">
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
 
+        <h2>Pendaftaran Online akan dibuka pada:</h2>
+
+        <h3>PENDAFTARAN ONLINE TAHAP I</h3>
+        <p><strong>Pendaftaran & Verifikasi:</strong> 24 - 26 Juni 2026</p>
+        <p><strong>Pengumuman:</strong> 27 Juni 2026 - 08:00 WITA</p>
+        <p><strong>Pendaftaran Ulang:</strong> 29 - 30 Juni 2026</p>
+
+        <h3>PENDAFTARAN ONLINE TAHAP II</h3>
+        <p><strong>Pendaftaran & Verifikasi:</strong> 01 - 02 Juli 2026</p>
+        <p><strong>Pengumuman:</strong> 03 Juli 2026 - 08:00 WITA</p>
+        <p><strong>Pendaftaran Ulang:</strong> 04 dan 06 Juli 2026</p>
+        <h3>
+          ATAU PANTAU SAJA DI LINK:
+          <a href="https://ntt.spmb.id" target="_blank">https://ntt.spmb.id</a>
+        </h3>
+      </div>
+    </div>
     <!-- INTERACTIVE JAVASCRIPT -->
     <script>
       // --- Mobile Menu Toggle ---
@@ -1087,6 +1174,56 @@
             mobileMenu.querySelector("i").classList.remove("fa-times");
           }
         });
+      });
+
+      // --- Validasi Link Pendaftaran SPMB ---
+      const spmbLinks = document.querySelectorAll(".spmb-link");
+      const modal = document.getElementById("spmbModal");
+      const closeModal = document.querySelector(".close-modal");
+
+      function isRegistrationOpen() {
+        const now = new Date();
+
+        const year = now.getFullYear();
+        const month = now.getMonth(); // Juni = 5, Juli = 6
+        const day = now.getDate();
+
+        if (year === 2026) {
+          // Tahap I: 24-26 Juni 2026
+          if (month === 5 && day >= 24 && day <= 26) {
+            return true;
+          }
+
+          // Tahap II: 01-02 Juli 2026
+          if (month === 6 && day >= 1 && day <= 2) {
+            return true;
+          }
+        }
+
+        return false;
+      }
+
+      spmbLinks.forEach((link) => {
+        link.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          if (isRegistrationOpen()) {
+            window.open("https://ntt.spmb.id", "_blank");
+          } else {
+            modal.style.display = "flex";
+          }
+        });
+      });
+
+      // Tutup modal
+      closeModal.addEventListener("click", () => {
+        modal.style.display = "none";
+      });
+
+      window.addEventListener("click", (e) => {
+        if (e.target === modal) {
+          modal.style.display = "none";
+        }
       });
     </script>
   </body>
